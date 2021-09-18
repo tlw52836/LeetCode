@@ -1,4 +1,4 @@
-public class deleteTheSame {
+public class 删除有序数组中的重复项 {
     public static void main(String[] args) {
         int[] nums = {1,1,1};
         int count = removeDuplicates(nums);

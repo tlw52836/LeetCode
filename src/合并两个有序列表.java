@@ -1,4 +1,4 @@
-public class MergeList {
+public class 合并两个有序列表 {
     public static void main(String[] args) {
 
         ListNode l0 = new ListNode();  //头结点
@@ -51,11 +51,4 @@ public class MergeList {
 }
 
 
-//结点
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-}
+
