@@ -1,0 +1,53 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class 三数之和 {
+    public static void main(String[] args) {
+        int[] nums = {-1,0,1,2,-1,-4};
+        List<List<Integer>> lists = threeSum(nums);
+        for(List<Integer> list:lists){
+            System.out.println(list.get(0) + " " + list.get(1) + " " + list.get(2));
+        }
+
+    }
+
+    public static List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> lists = new ArrayList<>();
+        Arrays.sort(nums);
+        for(int i = 0;i < nums.length;i++){
+            System.out.print(nums[i] + " ");
+        }
+        for(int i = 0;i < nums.length;i++){
+            //nums[i]大于0，后面找不到两个数与之相加为0
+            if(nums[i] > 0)
+                break;
+            //去除相同项
+            if(i > 0 && nums[i] == nums[i-1])
+                continue;
+
+            int m = i + 1;
+            int n = nums.length - 1;
+            System.out.println("m,n:" + m + " " + n);
+//            while (m != n) {
+//                if(nums[i] + nums[m] + nums[n] < 0){
+//                    m++;
+//                }
+//                else if(nums[i] + nums[m] + nums[n] > 0){
+//                    n--;
+//                }
+//                else{
+//                    List<Integer> list = new ArrayList<>();
+//                    list.add(nums[i]);
+//                    list.add(nums[m]);
+//                    list.add(nums[n]);
+//                    lists.add(list);
+//                }
+//            }
+        }
+
+        return lists;
+
+    }
+}
