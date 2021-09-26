@@ -1,4 +1,5 @@
-//结点
+package pojo;
+
 class ListNode {
     int val;
     ListNode next;

@@ -6,20 +6,20 @@ public class 最长回文子串 {
 
     public static String longestPalindrome(String s) {
 
-        String str = s.charAt(0) + ""; //记录最长回文串
-        char ch;  //记录当前字符
-
-        int i = 0,j;
-        while (i < s.length()) {
-            j = s.length()-1;
-            ch = s.charAt(i);
-            while(i < j && s.charAt(j) != s.charAt(i)){
-                j--;
+        String str = ""; //记录最长回文串
+        for(int i = 0;i < s.length();i++){
+            int m = i,n = s.length() -1;
+            while (m < n) {
+                if(s.charAt(m) == s.charAt(n)){
+                    m++;
+                    n--;
+                }else {
+                    break;
+                }
             }
-            if (i < j && str.length() < (j-i+1)) {
-                str = s.substring(i,j+1);
+            if(m >= n && (m-n+1) > str.length()){
+                str = s.substring(m,n+1);
             }
-            i++;
         }
         return str;
     }

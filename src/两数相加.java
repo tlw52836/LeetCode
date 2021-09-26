@@ -1,3 +1,5 @@
+import pojo.ListNode;
+
 public class 两数相加 {
     public static void main(String[] args) {
         ListNode num1 = new ListNode();
