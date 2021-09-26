@@ -1,6 +1,6 @@
 public class 盛水最多的容器 {
     public static void main(String[] args) {
-        int[] height = {1,8,6,2,5,4,8,3,7};
+        int[] height = {1,2,1};
         System.out.println(maxArea(height));
 
     }
@@ -13,12 +13,12 @@ public class 盛水最多的容器 {
         while (i < j) {
             left = height[i];
             right = height[j];
-            area =  Math.max( left,right) * (j-i+1);
+            area =  Math.min( left,right) * (j-i);
             if (maxArea < area) {
                 maxArea = area;
             }
-            if(left < right && i < j){
-                while(height[i] <= left){
+            if(left < right){
+                while(height[i] <= left && i < j){
                     i++;
                 }
             }
@@ -28,6 +28,6 @@ public class 盛水最多的容器 {
                 }
             }
         }
-        return 0;
+        return maxArea;
     }
 }
