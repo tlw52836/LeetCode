@@ -1,5 +1,3 @@
-import pojo.ListNode;
-
 public class 反转链表 {
     public static void main(String[] args) {
         ListNode head = new ListNode(1);

@@ -1,6 +1,4 @@
-package pojo;
-
-class ListNode {
+public class ListNode {
     int val;
     ListNode next;
     ListNode() {}
