@@ -1,6 +1,5 @@
-public class 合并两个有序列表 {
+public class 合并K个升序链表 {
     public static void main(String[] args) {
-
         ListNode l1 = new ListNode(1);
         ListNode l2 = new ListNode(3);
         ListNode l3 = new ListNode(10);
@@ -13,14 +12,27 @@ public class 合并两个有序列表 {
 
         l5.next = l6;
 
-       ListNode merge = mergeTwoLists(l1,l5);
-       ListNode p = merge;
-       while(p != null){
-           System.out.print(p.val + " ");
-           p = p.next;
-       }
+        ListNode l7 = new ListNode(7);
+        ListNode l8 = new ListNode(88);
+        l7.next = l8;
+
+
+        ListNode merge = mergeKLists(new ListNode[]{l1,l5,l7});
+        ListNode p = merge;
+        while (p != null){
+            System.out.println(p.val);
+            p = p.next;
+        }
+
     }
 
+
+    /**
+     * 合并两个链表
+     * @param l1
+     * @param l2
+     * @return
+     */
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         /**
          * 加上头结点以便于统一操作
@@ -60,7 +72,19 @@ public class 合并两个有序列表 {
         return l.next;
     }
 
+    /**
+     * 合并K个链表：依次遍历每个链表，将其与merge（存放当前合并后的链表）合并
+     * @param lists
+     * @return
+     */
+    public static ListNode mergeKLists(ListNode[] lists) {
+        if(lists.length == 0){
+            return null;
+        }
+        ListNode merge = lists[0];  //存合并后的链表
+        for(int i = 1;i < lists.length;i++){
+            merge = mergeTwoLists(merge,lists[i]);
+        }
+        return merge;
+    }
 }
-
-
-
