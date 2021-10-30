@@ -13,26 +13,27 @@ public class 环形链表 {
         l4.next = l2;
         System.out.println(hasCycle(l1));
 
-        List<String> list = new ArrayList<>();
-        list.add("fff");
-
     }
 
+    /**
+     * p指针每次走两步，q指针每次走一步，若在走的过程中相遇则证明存在环
+     * @param head
+     * @return
+     */
     public static boolean hasCycle(ListNode head) {
-        ListNode p = head;
-        ListNode q;
-        while (p != null) {
-            q = p.next;
-            while (q != null) {
-                if (q == p)
-                    return true;
-                else
-                    q = q.next;
-                System.out.println(q.val);
-            }
-            System.out.println(p.val);
-            p = p.next;
+        if (head == null || head.next == null) {
+            return false;
         }
-        return false;
+        ListNode p = head;
+        ListNode q = head.next;
+        while (p != q) {
+            if (q.next != null && q.next.next != null){
+                p = p.next;
+                q = q.next.next;
+            }else {
+                return false;
+            }
+        }
+        return true;
     }
 }
