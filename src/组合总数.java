@@ -48,14 +48,14 @@ public class 组合总数 {
          * 移除重复元素
          */
         public void remove() {
-            Set<Integer>
+            Set<List<Integer>> set = new HashSet<>();
             for (int i = 0; i < result.size(); i++) {
                 Object[] objects = result.get(i).toArray();
                 Arrays.sort(objects);
                 List list = new ArrayList(Arrays.asList(objects));
-
-                result.set(i,list);
+                set.add(list);
             }
+            result = new ArrayList<>(set);
         }
     }
 }
