@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class 组合总数 {
     public static void main(String[] args) {
@@ -20,6 +18,9 @@ public class 组合总数 {
             this.s = new Stack<>();
 
             dfs(target);
+
+            remove();
+
             return result;
         }
 
@@ -47,7 +48,14 @@ public class 组合总数 {
          * 移除重复元素
          */
         public void remove() {
+            Set<Integer>
+            for (int i = 0; i < result.size(); i++) {
+                Object[] objects = result.get(i).toArray();
+                Arrays.sort(objects);
+                List list = new ArrayList(Arrays.asList(objects));
 
+                result.set(i,list);
+            }
         }
     }
 }
