@@ -13,6 +13,7 @@ public class 组合总数 {
         private Stack<Integer> s;  //存放中间结果
 
         public List<List<Integer>> combinationSum(int[] candidates, int target) {
+            Arrays.sort(candidates);
             this.candidates = candidates;
             this.result = new ArrayList<>();
             this.s = new Stack<>();
