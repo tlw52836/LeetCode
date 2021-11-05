@@ -21,54 +21,56 @@ public class 相交链表 {
 
         Solution s = new Solution();
         System.out.println(s.getIntersectionNode(a1, b1).val);
+
     }
-}
+    static class Solution {
+        /**
+         * 依次遍历两个链表，算出它们之间的长度差diff；将较长的链表向前移动diff个单元
+         * @param headA
+         * @param headB
+         * @return
+         */
+        public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+            int aLen = 0, bLen = 0, diff;  //diff:长度差
+            ListNode p, p1 = headA, p2 = headB;
 
-class Solution {
-    /**
-     * 依次遍历两个链表，算出它们之间的长度差diff；将较长的链表向前移动diff个单元
-     * @param headA
-     * @param headB
-     * @return
-     */
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        int aLen = 0, bLen = 0, diff;  //diff:长度差
-        ListNode p, p1 = headA, p2 = headB;
+            p = headA;
+            while (p != null) {
+                aLen++;
+                p = p.next;
+            }
 
-        p = headA;
-        while (p != null) {
-            aLen++;
-            p = p.next;
-        }
+            p = headB;
+            while (p != null) {
+                bLen++;
+                p = p.next;
+            }
 
-        p = headB;
-        while (p != null) {
-            bLen++;
-            p = p.next;
-        }
+            diff = Math.abs(aLen-bLen);
+            if (aLen > bLen) {
+                while (diff != 0) {
+                    p1 = p1.next;
+                    diff--;
+                }
+            } else {
+                while (diff != 0) {
+                    p2 = p2.next;
+                    diff--;
+                }
+            }
 
-        diff = Math.abs(aLen-bLen);
-        if (aLen > bLen) {
-            while (diff != 0) {
+            while (p1 != null) {
+                if (p1 == p2) {
+                    return p1;
+                }
                 p1 = p1.next;
-                diff--;
-            }
-        } else {
-            while (diff != 0) {
                 p2 = p2.next;
-                diff--;
             }
+            return null;
         }
-
-        while (p1 != null) {
-            if (p1 == p2) {
-                return p1;
-            }
-            p1 = p1.next;
-            p2 = p2.next;
-        }
-        return null;
     }
 }
+
+
 
 
