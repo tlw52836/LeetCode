@@ -2,8 +2,8 @@ import java.util.*;
 
 public class 组合总数 {
     public static void main(String[] args) {
-        int[] candidates = {2, 3, 6, 7};
-        int target = 7;
+        int[] candidates = {2, 7, 6, 3, 5, 1};
+        int target = 9;
         System.out.println(new Solution().combinationSum(candidates, target));
     }
 
