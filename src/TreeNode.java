@@ -14,6 +14,11 @@ public class TreeNode {
         this.right = right;
     }
 
+    /**
+     * 建立二叉树
+     * @param nums
+     * @return
+     */
     public static TreeNode build(Integer[] nums) {
         int i = 0;
         Queue<TreeNode> q = new LinkedList<>();
