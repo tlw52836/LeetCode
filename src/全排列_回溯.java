@@ -29,7 +29,7 @@ public class 全排列_回溯 {
                 List<Integer> list = new ArrayList<>();  //保存目前访问过的路径
                 list.add(nums[i]);
 
-                dfs(0,list);
+                dfs(list);
 
                 /**
                  * 回溯
@@ -40,9 +40,9 @@ public class 全排列_回溯 {
             return results;
         }
 
-        public void dfs(int depth, List list) {
+        public void dfs(List list) {
             //System.out.println("list:" + list);
-            if(depth == nums.length-1) {
+            if(list.size() == nums.length) {
                 results.add(new ArrayList<>(list));
                 return;
             }
@@ -56,7 +56,7 @@ public class 全排列_回溯 {
                 } else {
                     visit[i] = 1;
                     list.add(nums[i]);
-                    dfs(depth+1, list);
+                    dfs(list);
                     /**
                      * 回溯
                      */
