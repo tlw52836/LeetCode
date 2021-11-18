@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class 重复的子字符串 {
     public static void main(String[] args) {
         System.out.println(repeatedSubstringPattern("aba"));
