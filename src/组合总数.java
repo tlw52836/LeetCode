@@ -2,7 +2,7 @@ import java.util.*;
 
 public class 组合总数 {
     public static void main(String[] args) {
-        int[] candidates = {2, 7, 6, 3, 5, 1};
+        int[] candidates = {10, 7, 6, 3, 5, 1};
         int target = 9;
         System.out.println(new Solution().combinationSum(candidates, target));
     }
@@ -36,7 +36,7 @@ public class 组合总数 {
                  * 剪枝
                  */
                 if (target - candidates[i] < 0) {
-                    return;
+                    return;  //方式一：Arrays.sort(candidates) + return   方式二：continue,该方式不能剪枝，导致效率低下
                 } else {
                     s.push(candidates[i]);
                     dfs(target - candidates[i]);
@@ -51,9 +51,9 @@ public class 组合总数 {
         public void remove() {
             Set<List<Integer>> set = new HashSet<>();
             for (int i = 0; i < result.size(); i++) {
-                Object[] objects = result.get(i).toArray();
-                Arrays.sort(objects);
-                List list = new ArrayList(Arrays.asList(objects));
+                Object[] objs = result.get(i).toArray();
+                Arrays.sort(objs);
+                List list = new ArrayList<>(Arrays.asList(objs));
                 set.add(list);
             }
             result = new ArrayList<>(set);
