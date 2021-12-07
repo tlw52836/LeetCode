@@ -11,6 +11,15 @@ public class 组合总和II {
         List<Integer> list = new ArrayList<>();
         int[] visit = new int[candidates.length];
 
+        //比较candidates数组元素的总和与target的大小
+        int sum = 0;
+        for (int num:candidates) {
+            sum += num;
+        }
+
+        if (sum < target)
+            return res;
+
         //对数组进行排序，剪枝的关键
         Arrays.sort(candidates);
 
