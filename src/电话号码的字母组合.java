@@ -2,7 +2,7 @@ import java.util.*;
 
 public class 电话号码的字母组合 {
     public static void main(String[] args) {
-        System.out.println(letterCombinations("2"));
+        System.out.println(letterCombinations("23"));
     }
 
 //    public static List<String> letterCombinations(String digits) {
@@ -79,9 +79,7 @@ public class 电话号码的字母组合 {
 
         String s = map.get(digits.charAt(str.length()));
         for (int i = 0; i < s.length(); i++) {
-            str = str+s.charAt(i);
-            dfs (map, digits, res, str);
-            str = str.substring(0, str.length()-1);
+            dfs (map, digits, res, str+s.charAt(i));
         }
     }
 }
