@@ -2,8 +2,8 @@ import java.util.*;
 
 public class 组合总数 {
     public static void main(String[] args) {
-        int[] candidates = {10, 7, 6, 3, 5, 1};
-        int target = 9;
+        int[] candidates = {2,3,6,7};
+        int target = 7;
         System.out.println(new Solution().combinationSum(candidates, target));
     }
 
@@ -13,25 +13,23 @@ public class 组合总数 {
         private Stack<Integer> s;  //存放中间结果
 
         public List<List<Integer>> combinationSum(int[] candidates, int target) {
-            Arrays.sort(candidates);
+            Arrays.sort(candidates);  //排序以便于剪枝
             this.candidates = candidates;
             this.result = new ArrayList<>();
             this.s = new Stack<>();
 
-            dfs(target);
-
-            remove();
+            dfs(target, 0);
 
             return result;
         }
 
-        public void dfs(int target) {
+        public void dfs(int target, int begin) {  //使用begin来排除重复的结果
             if (target == 0) {
                 result.add(new ArrayList<>(s));
                 return;
             }
 
-            for (int i = 0; i < candidates.length; i++) {
+            for (int i = begin; i < candidates.length; i++) {
                 /**
                  * 剪枝
                  */
@@ -39,24 +37,11 @@ public class 组合总数 {
                     return;  //方式一：Arrays.sort(candidates) + return   方式二：continue,该方式不能剪枝，导致效率低下
                 } else {
                     s.push(candidates[i]);
-                    dfs(target - candidates[i]);
+                    dfs(target - candidates[i], i);
                     s.pop();
                 }
             }
         }
-
-        /**
-         * 移除重复元素
-         */
-        public void remove() {
-            Set<List<Integer>> set = new HashSet<>();
-            for (int i = 0; i < result.size(); i++) {
-                Object[] objs = result.get(i).toArray();
-                Arrays.sort(objs);
-                List list = new ArrayList<>(Arrays.asList(objs));
-                set.add(list);
-            }
-            result = new ArrayList<>(set);
-        }
     }
+
 }

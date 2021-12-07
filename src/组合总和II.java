@@ -2,31 +2,26 @@ import java.util.*;
 
 public class 组合总和II {
     public static void main(String[] args) {
-        int[] candidates = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-        int target = 27;
+        int[] candidates = {10,1,2,7,6,1,5};
+        int target = 8;
         System.out.println(combinationSum2(candidates, target));
     }
     public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> res = new ArrayList<>();
+        Set<List<Integer>> res = new HashSet<>();
         List<Integer> list = new ArrayList<>();
         int[] visit = new int[candidates.length];
-
-        //比较candidates数组元素的总和与target的大小
-        int sum = 0;
-        for (int num:candidates) {
-            sum += num;
-        }
-
-        if (sum < target)
-            return res;
 
         //对数组进行排序，剪枝的关键
         Arrays.sort(candidates);
 
-        dfs(candidates, target, res, visit, list);
-        res = remove(res);
+        for (int i = 0; i < candidates.length; i++) {
+            System.out.print(candidates[i] + " ");
+        }
+        System.out.println();
 
-        return res;
+        dfs(candidates, target, res, visit, list, 0);
+
+        return new ArrayList<>(res);
     }
 
     /**
@@ -37,39 +32,23 @@ public class 组合总和II {
      * @param visit
      * @param list
      */
-    public static void dfs(int[] candidates, int target, List<List<Integer>> res, int[] visit, List<Integer> list) {
+    public static void dfs(int[] candidates, int target, Set<List<Integer>> res, int[] visit, List<Integer> list, int begin) {
         if (target == 0){
             res.add(new ArrayList<>(list));
             return;
         }
 
-        for (int i = 0; i < candidates.length; i++) {
+        for (int i = begin; i < candidates.length; i++) {
+            if (begin > i && candidates[i] == candidates[i-1])
+                continue;
             //剪枝1
             if (target - candidates[i] < 0)
                 return;
-            //剪枝2
-            if (visit[i] == 1)
-                continue;
 
-            visit[i] = 1;
             list.add(candidates[i]);
-            dfs(candidates, target-candidates[i], res, visit, list);
+            dfs(candidates, target-candidates[i], res, visit, list, i+1);
             //回溯
             list.remove(list.size()-1);
-            visit[i] = 0;
         }
-    }
-
-    /**
-     * 去除重复元素
-     */
-    public static List<List<Integer>> remove(List<List<Integer>> res) {
-        Set<List<Integer>> set = new HashSet<>();
-        for (int i = 0; i < res.size(); i++) {
-            Object[] array = res.get(i).toArray();
-            Arrays.sort(array);
-            set.add(new ArrayList(Arrays.asList(array)));
-        }
-        return new ArrayList<>(set);
     }
 }
