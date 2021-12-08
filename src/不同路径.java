@@ -32,18 +32,14 @@ public class 不同路径 {
 
 
             for (int i = 0; i < direction.length; i++) {
-                a = a + direction[i][0];
-                b = b + direction[i][1];
-                //System.out.println("a,b:" + a + " " + b);
-
                 /**
                  *剪枝
                  */
-                if (a > m || b > n) {
-                    a = a - direction[i][0];
-                    b = b - direction[i][1];
-                   continue;
-                }
+                if (a + direction[i][0] > m || b + direction[i][1] > n)
+                    continue;
+
+                a = a + direction[i][0];
+                b = b + direction[i][1];
 
                 dfs(a, b);
 
@@ -52,7 +48,6 @@ public class 不同路径 {
                  */
                 a = a - direction[i][0];
                 b = b - direction[i][1];
-
             }
         }
     }
