@@ -1,4 +1,4 @@
-public interface Nim游戏 {
+public class Nim游戏 {
     public static void main(String[] args) {
         Solution s = new Solution();
         System.out.println(s.canWinNim(4));
