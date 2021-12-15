@@ -28,27 +28,28 @@ public class 排序链表 {
         ListNode slow, fast;
         slow = fast = l;
 
-        while (fast != r && slow.next != fast) {
-            slow = slow.next;
+        while (l.next != r && fast != r) {
             fast = fast.next;
-            if (fast != r)
+            if (fast != r) {
+                slow = slow.next;
                 fast = fast.next;
+            }
         }
 
         ListNode mid = slow;
         ListNode l1 = sort(l, mid);
         ListNode r1 = sort(mid.next, r);
 
-        return merge(l1, r1);
+        return merge(l1,mid, r1);
     }
 
-    private static ListNode merge(ListNode l1, ListNode r1) {
+    private static ListNode merge(ListNode l1, ListNode mid, ListNode r1) {
         ListNode head = new ListNode();
         ListNode p = head;
 
-        ListNode p1 = l1, p2 = r1;
+        ListNode p1 = l1, p2 = mid.next;
 
-        while (p1 != null && p2 != null) {
+        while (p1 != mid.next && p2 != r1.next) {
             if (p1.val < p2.val) {
                 p.next = p1;
                 p1 = p1.next;
@@ -59,10 +60,10 @@ public class 排序链表 {
             p = p.next;
         }
 
-        if (p1 != null)
+        if (p1 != mid.next)
             p.next = p1;
 
-        if (p2 != null)
+        if (p2 != r1.next)
             p.next = p2;
 
         return head.next;
