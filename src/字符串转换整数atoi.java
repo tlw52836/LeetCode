@@ -19,12 +19,11 @@ public class 字符串转换整数atoi {
         if (i >= ss.length || !(ss[i] == '-' || ss[i] == '+' || Character.isDigit(ss[i])))
             return 0;
 
-        String res = "";
-        
-        //添加正负号
+        //记录正负号
+        int symbol = 1;  // 0 负 1 正
         if (ss[i] == '-') {
-            res += '-';
             i++;
+            symbol = 0;
         }
 
         if (ss[i] == '+') {
@@ -32,6 +31,7 @@ public class 字符串转换整数atoi {
         }
 
         //添加数字
+        String digit = "";
         boolean flag = true;
 
         while (i < ss.length && Character.isDigit(ss[i])) {
@@ -39,28 +39,35 @@ public class 字符串转换整数atoi {
                 i++;
             } else {
                 flag = false;
-                res += ss[i];
+                digit += ss[i];
                 i++;
             }
         }
 
-        if (res.equals("-"))
+        if (digit.length() <= 0)
             return 0;
 
         String inter;
-        if (res.charAt(0) == '-') {
+
+        if (symbol == 0) {
             inter = (Integer.MIN_VALUE + "").substring(1);
         } else {
             inter = Integer.MAX_VALUE + "";
         }
 
-        if (res.length() < inter.length())
-            return Integer.valueOf(res);
-        else if (inter.length() >)
-
-        for (int j = 0; j < ; j++) {
-
+        if (digit.length() < inter.length())
+            return Integer.valueOf(digit);
+        else if (inter.length() > inter.length())
+            return 0;
+        else {
+            boolean f = true;
+            for (int j = 0; j < digit.length(); j++) {
+                if (digit.charAt(j) > inter.charAt(j))
+                    
+            }
         }
+
+
 
 
 
