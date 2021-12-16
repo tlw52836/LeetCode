@@ -1,3 +1,6 @@
+/**
+ * 单向链表
+ */
 public class ListNode {
     int val;
     ListNode next;

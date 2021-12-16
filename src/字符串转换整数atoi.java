@@ -62,8 +62,10 @@ public class 字符串转换整数atoi {
         else {
             boolean f = true;
             for (int j = 0; j < digit.length(); j++) {
-                if (digit.charAt(j) > inter.charAt(j))
-                    
+                if (digit.charAt(j) > inter.charAt(j)) {
+
+                }
+
             }
         }
 
