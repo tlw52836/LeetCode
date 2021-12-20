@@ -12,6 +12,7 @@ public class 全排列_回溯 {
         private int[] nums;
         private int[] visit;  //记录是否访问过
         private List<List<Integer>> results;  //保存结果
+        private List<Integer> list;  //保存目前访问过的路径
 
         /**
          * dfs + 回溯
@@ -22,25 +23,14 @@ public class 全排列_回溯 {
             this.nums = nums;
             this.visit = new int[nums.length];
             this.results = new ArrayList<>();
+            this.list = new ArrayList<>();
 
-            //用于存放排列结果
-            for (int i = 0; i < nums.length; i++) {
-                visit[i] = 1;
-                List<Integer> list = new ArrayList<>();  //保存目前访问过的路径
-                list.add(nums[i]);
+            dfs();
 
-                dfs(list);
-
-                /**
-                 * 回溯
-                 */
-                list.remove(list.size()-1);
-                visit[i] = 0;
-            }
             return results;
         }
 
-        public void dfs(List list) {
+        public void dfs() {
             //System.out.println("list:" + list);
             if(list.size() == nums.length) {
                 results.add(new ArrayList<>(list));
@@ -56,7 +46,7 @@ public class 全排列_回溯 {
                 } else {
                     visit[i] = 1;
                     list.add(nums[i]);
-                    dfs(list);
+                    dfs();
                     /**
                      * 回溯
                      */

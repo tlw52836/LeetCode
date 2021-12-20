@@ -39,8 +39,8 @@ public class 全排列II {
                 continue;
             }
 
-            //去除重复元素
-            if (i > 0 && flag[i-1] && nums[i] == nums[i-1])
+            //去除重复元素，同一层中（看上个元素是否在上一层被标记过，若没有标记则表示两元素在同一层）如果元素相同则跳过
+            if (i > 0 && !visit[i-1] && nums[i] == nums[i-1])
                 continue;
 
             visit[i] = true;
