@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class 每日温度 {
+public class 每日温度_暴力 {
     public static void main(String[] args) {
         int[] temperatures = {73,74,75,71,69,72,76,73};
         System.out.println(Arrays.toString(dailyTemperatures(temperatures)));

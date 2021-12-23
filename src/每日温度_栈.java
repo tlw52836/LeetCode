@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Stack;
 
-public class 每日温度2 {
+public class 每日温度_栈 {
     public static void main(String[] args) {
         int[] temperatures = {73,74,75,71,69,72,76,73};
         System.out.println(Arrays.toString(dailyTemperatures(temperatures)));

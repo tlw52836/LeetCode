@@ -1,4 +1,4 @@
-public class 无重复字符的最长子串 {
+public class 无重复字符的最长子串_暴力 {
     public static void main(String[] args) {
         String s = "bpfbhmipx";
         System.out.println("最长子串长度：" + lengthOfLongestSubstring(s));
