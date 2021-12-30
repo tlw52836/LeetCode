@@ -10,26 +10,31 @@ public class 任务调度器 {
         int n = 2;
         System.out.println(leastInterval(task, n));
     }
+
+    /**
+     * 桶装法:详见题解
+     * @param tasks
+     * @param n
+     * @return
+     */
     public static int leastInterval(char[] tasks, int n) {
         Map<Character, Integer> maps = new HashMap<>();
-        for (int i = 0; i < tasks.length; i++) {
-            maps.put(tasks[i], maps.getOrDefault(tasks[i],0) + 1);
-        }
-
-        List<Integer> list = new ArrayList<>();
         int max = -1;
+        int maxCount = 0;
         int all = 0;
 
-        for (int m:maps.values()) {
-            max = Math.max(max, m);
-            all += m;
-            list.add(m);
+        for (int i = 0; i < tasks.length; i++) {
+            int count =  maps.getOrDefault(tasks[i],0) + 1;
+            max = Math.max(max, count);
+            maps.put(tasks[i], count);
         }
 
-        System.out.println(max);
-        if (all-((max-1)*(n+1)+1) >= 0)
-            return all;
-        else
-            return (max-1) * (n+1) + 1;
+        for (int m:maps.values()) {
+            if (m == max)
+                maxCount++;
+            all += m;
+        }
+
+       return Math.max(all, (max-1)*(n+1)+maxCount);
     }
 }
