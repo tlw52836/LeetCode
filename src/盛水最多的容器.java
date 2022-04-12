@@ -4,7 +4,13 @@ public class 盛水最多的容器 {
         System.out.println(maxArea(height));
 
     }
-    public static  int maxArea(int[] height) {
+
+    /**
+     * 双指针
+     * @param height
+     * @return
+     */
+    public static int maxArea(int[] height) {
         int maxArea = 0;  //记录最大面积
 
         int i = 0,j = height.length-1;
@@ -18,14 +24,10 @@ public class 盛水最多的容器 {
                 maxArea = area;
             }
             if(left < right){
-                while(height[i] <= left && i < j){
-                    i++;
-                }
+                i++;
             }
             else {
-                while (height[j] <= right && i < j) {
-                    j--;
-                }
+                j--;
             }
         }
         return maxArea;
