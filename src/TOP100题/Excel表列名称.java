@@ -1,3 +1,5 @@
+package TOP100题;
+
 public class Excel表列名称 {
     public static void main(String[] args) {
         System.out.println(convertToTitle(52));
