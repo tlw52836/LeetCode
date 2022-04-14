@@ -69,6 +69,7 @@ public class 字符串转换整数atoi {
             t++;
         }
 
+        //利用边界进行检测
         while (t < s.length() && Character.isDigit(s.charAt(t))) {
             if (flag) {
                 int mmm = -s.charAt(t) - '0';
