@@ -1,4 +1,4 @@
-package 初级算法;
+package 初级算法.数组;
 
 public class 买卖股票的最佳时机II {
     public static void main(String[] args) {

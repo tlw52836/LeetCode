@@ -1,4 +1,4 @@
-package 初级算法;
+package 初级算法.数组;
 
 import java.util.HashMap;
 import java.util.HashSet;

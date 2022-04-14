@@ -1,4 +1,4 @@
-package 初级算法;
+package 初级算法.数组;
 
 public class 删除排序数组中的重复项 {
     public static void main(String[] args) {
