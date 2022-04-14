@@ -1,8 +1,6 @@
 package TOP100题;
 
-import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class 全排列_动态规划 {

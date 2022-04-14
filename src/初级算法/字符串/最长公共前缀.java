@@ -1,6 +1,4 @@
-package TOP100题;
-
-import com.sun.media.sound.RIFFInvalidDataException;
+package 初级算法.字符串;
 
 public class 最长公共前缀 {
     public static void main(String[] args) {
