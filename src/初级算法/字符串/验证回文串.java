@@ -1,4 +1,4 @@
-package TOP100题;
+package 初级算法.字符串;
 
 
 public class 验证回文串 {
