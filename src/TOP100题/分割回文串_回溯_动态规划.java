@@ -3,7 +3,7 @@ package TOP100题;
 import java.util.ArrayList;
 import java.util.List;
 
-public class 分割回文串_dfs_回溯_动态规划 {
+public class 分割回文串_回溯_动态规划 {
     public static void main(String[] args) {
         System.out.println(partition("aab"));
     }

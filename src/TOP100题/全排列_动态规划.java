@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class 全排列 {
+public class 全排列_动态规划 {
     public static void main(String[] args) {
         int[] nums = {1,2,3};
 

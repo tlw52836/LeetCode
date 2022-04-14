@@ -1,6 +1,6 @@
 package TOP100题;
 
-public class 不同路径 {
+public class 不同路径_回溯 {
     public static void main(String[] args) {
         Solution s = new Solution();
         System.out.println(s.uniquePaths(23, 12));

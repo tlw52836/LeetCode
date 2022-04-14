@@ -52,4 +52,21 @@ public class 翻转二叉树 {
             dfs(root1.right, root2.left, root1, root2, 1);
         }
     }
+
+
+
+    public static TreeNode invertTree2(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        TreeNode right = invertTree(root.right);
+        TreeNode left = invertTree(root.left);
+
+        //交换
+        root.left = right;
+        root.right = left;
+
+        return root;
+    }
 }

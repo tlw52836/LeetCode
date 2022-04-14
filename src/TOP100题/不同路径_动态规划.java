@@ -2,7 +2,7 @@ package TOP100题;
 
 import java.util.Arrays;
 
-public class 不同路径2 {
+public class 不同路径_动态规划 {
     public static void main(String[] args) {
         System.out.println("结果:" + uniquePaths(3, 7));
     }
