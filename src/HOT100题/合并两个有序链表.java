@@ -1,6 +1,6 @@
 package HOT100题;
 
-public class 合并两个有序列表 {
+public class 合并两个有序链表 {
     public static void main(String[] args) {
 
         ListNode l1 = new ListNode(1);
