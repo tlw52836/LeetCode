@@ -1,4 +1,4 @@
-package HOT100题;
+package 初级算法.链表;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -40,7 +40,6 @@ public class 环形链表 {
         }
         return true;
     }
-
 
     /**
      * map
