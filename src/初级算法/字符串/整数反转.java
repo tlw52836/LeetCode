@@ -61,7 +61,7 @@ public class 整数反转 {
         while (x != 0) {
             int a = x % 10;
             //判断是否超出边界
-            if (a != 0 && (res > Integer.MAX_VALUE/10 || res < Integer.MIN_VALUE/10))
+            if ((res > Integer.MAX_VALUE/10 || res == Integer.MAX_VALUE/10 && a > Integer.MAX_VALUE % 10) || (res < Integer.MIN_VALUE/10 || res == Integer.MIN_VALUE/10 && x < Integer.MIN_VALUE%10))
                 return 0;
             res = res * 10 + a;
             x = x / 10;
