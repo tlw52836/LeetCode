@@ -1,4 +1,6 @@
-package TOP100题;
+package 初级算法.链表;
+
+
 
 public class 删除链表的倒数第N个结点 {
     public static void main(String[] args) {
