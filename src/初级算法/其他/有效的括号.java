@@ -1,6 +1,8 @@
 package 初级算法.其他;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 
 public class 有效的括号 {
     public static void main(String[] args) {
@@ -23,9 +25,8 @@ public class 有效的括号 {
                     return false;
             }
         }
-        if (stack.isEmpty())
-            return true;
-        return false;
+
+        return stack.isEmpty();
     }
 
 }

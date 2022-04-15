@@ -25,9 +25,8 @@ public class 有效的括号 {
                     return false;
             }
         }
-        if (stack.isEmpty())
-            return true;
-        return false;
+
+        return stack.isEmpty();
     }
 
 }
