@@ -1,4 +1,4 @@
-package HOT100题;
+package 初级算法.其他;
 
 public class 汉明距离 {
     public static void main(String[] args) {
