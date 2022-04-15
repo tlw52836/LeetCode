@@ -1,8 +1,6 @@
-package HOT100题;
+package 初级算法.其他;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class 有效的括号 {
     public static void main(String[] args) {
