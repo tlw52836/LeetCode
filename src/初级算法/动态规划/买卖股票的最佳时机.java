@@ -8,22 +8,17 @@ public class 买卖股票的最佳时机 {
     }
 
 
-    /**
-     * dp[i] = dp[i-1] || (dp[i-1]+prices[i]-prices[i-1])     如果prices[i] > prices[i-1]则利润提高，否则利润不变
-     * @param prices
-     * @return
-     */
     public static int maxProfit(int[] prices) {
-        int[] dp = new int[prices.length];
-        dp[0] = 0;
-        for (int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i-1])
-                dp[i] = dp[i-1]+prices[i]-prices[i-1];
-            else
-                dp[i] = dp[i-1];
+        int maxProfit = 0;
+        int minPrice = prices[0];
 
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < minPrice) {
+                minPrice = prices[i];
+            } else {
+              maxProfit = Math.max(maxProfit, prices[i]-minPrice);
+            }
         }
-        System.out.println(Arrays.toString(dp));
-        return dp[dp.length-1];
+        return maxProfit;
     }
 }
