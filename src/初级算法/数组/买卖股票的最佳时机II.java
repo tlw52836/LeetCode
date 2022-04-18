@@ -2,7 +2,7 @@ package 初级算法.数组;
 
 public class 买卖股票的最佳时机II {
     public static void main(String[] args) {
-        int[] prices = {1,2,3,4,5};
+        int[] prices = {7,1,5,3,6,4};
         System.out.println(maxProfit(prices));
     }
 
