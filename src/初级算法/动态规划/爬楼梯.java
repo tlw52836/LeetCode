@@ -1,4 +1,4 @@
-package HOT100题;
+package 初级算法.动态规划;
 
 public class 爬楼梯 {
     public static void main(String[] args) {
