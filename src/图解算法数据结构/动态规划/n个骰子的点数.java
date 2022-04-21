@@ -1,27 +1,33 @@
 package 图解算法数据结构.动态规划;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class n个骰子的点数 {
     public static void main(String[] args) {
-
+        System.out.println(Arrays.toString(dicesProbability(2)));
     }
 
     public static double[] dicesProbability(int n) {
         double[][] dp = new double[n+1][6*n+1];
-        int sum = 0;
-        int sumCopy = 0;
-        for (int i = 1; i <= n; i++) {
-            sumCopy = sum;
-            sum = 0;
-            for (int j = i; j <= 6*i; j++) {
-                for (int k = i-1; k <= (i-1)*(i-1); k++) {
-                    if ()
-                }
-            }
+        Arrays.fill(dp[1],1.0/6);
 
+        for (int i = 2; i <= n; i++) {
+            for (int j = i-1; j <= 6*(i-1); j++) {
+                dp[i][j+1] += 1.0/6 * dp[i-1][j];
+                dp[i][j+2] += 1.0/6 * dp[i-1][j];
+                dp[i][j+3] += 1.0/6 * dp[i-1][j];
+                dp[i][j+4] += 1.0/6 * dp[i-1][j];
+                dp[i][j+5] += 1.0/6 * dp[i-1][j];
+                dp[i][j+6] += 1.0/6 * dp[i-1][j];
+            }
         }
-        return null;
+
+        double[] res = new double[6*n-n+1];
+        for (int i = n; i <= 6*n; i++) {
+            res[i-n] = dp[n][i];
+        }
+        return res;
     }
 }
