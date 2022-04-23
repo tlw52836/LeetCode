@@ -1,4 +1,4 @@
-package 初级算法.动态规划;
+package HOT100题.动态规划;
 
 
 public class 买卖股票的最佳时机 {
@@ -7,6 +7,11 @@ public class 买卖股票的最佳时机 {
     }
 
 
+    /**
+     * 动态规划 前i天的最大收益 = max{前i-1天的最大收益，第i天的价格-前i-1天中的最小价格}
+     * @param prices
+     * @return
+     */
     public static int maxProfit(int[] prices) {
         int maxProfit = 0;
         int minPrice = prices[0];
