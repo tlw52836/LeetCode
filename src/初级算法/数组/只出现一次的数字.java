@@ -1,6 +1,6 @@
 package 初级算法.数组;
 
-import java.util.Arrays;
+
 
 public class 只出现一次的数字 {
     public static void main(String[] args) {
@@ -9,17 +9,10 @@ public class 只出现一次的数字 {
 
     }
     public static int singleNumber(int[] nums) {
-        Arrays.sort(nums);
-        int i = 0;
-        while (i < nums.length) {
-            if (i == nums.length - 1) {
-                return nums[i];
-            }
-            if(nums[i] != nums[i+1])
-                return nums[i];
-            else
-                i = i + 2;
+        int res = 0;
+        for (int num : nums) {
+            res = res ^ num;
         }
-        return 0;
+        return res;
     }
 }
