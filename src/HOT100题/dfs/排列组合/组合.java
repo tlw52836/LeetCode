@@ -1,4 +1,4 @@
-package HOT100题.排列组合;
+package HOT100题.dfs.排列组合;
 
 import java.util.ArrayList;
 import java.util.List;
