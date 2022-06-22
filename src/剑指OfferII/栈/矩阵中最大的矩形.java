@@ -1,12 +1,11 @@
 package 剑指OfferII.栈;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 public class 矩阵中最大的矩形 {
     public static void main(String[] args) {
         String[] matrix = {"10100","10111","11111","10010"};
-        System.out.println(maximalRectangle(new String[2]));
+        System.out.println(maximalRectangle(matrix));
     }
     public static int maximalRectangle(String[] matrix) {
         if (matrix.length <= 0){
